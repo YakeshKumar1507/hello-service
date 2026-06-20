@@ -26,5 +26,8 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Build Project
-        run: mvn clean package -DskipTests
+      - name: Build Jar
+        run: mvn clean package
+
+      - name: Build Docker Image
+        run: docker build -t hello-service:${{ github.run_number }} .
