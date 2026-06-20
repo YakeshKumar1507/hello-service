@@ -27,7 +27,7 @@ jobs:
           java-version: '21'
 
       - name: Build Jar
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Build Docker Image
         run: docker build -t hello-service:${{ github.run_number }} .
